@@ -1,5 +1,6 @@
 import React from "react";
 import { Fragment } from "react/cjs/react.development";
+import CartWidget from "./CartWidget";
 
 class NavBar extends React.Component {
     render() {
@@ -11,7 +12,7 @@ class NavBar extends React.Component {
         return(
             <fragment>
                 <div style={customStyle}>
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <nav class="navbar navbar-expand-lg navbar-light ">
                         <div class="container-fluid">
                             <a class="navbar-brand" href="#">Chamberlain Coffee</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,9 +34,11 @@ class NavBar extends React.Component {
                                 </li>
                             </ul>
                             </div>
+                            <CartWidget />
                         </div>
                     </nav>
                 </div>
+                
             </fragment>
         )
     }
