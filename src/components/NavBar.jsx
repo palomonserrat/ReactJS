@@ -1,5 +1,4 @@
 import React from "react";
-import { Fragment } from "react/cjs/react.development";
 import CartWidget from "./CartWidget";
 
 class NavBar extends React.Component {
@@ -8,7 +7,6 @@ class NavBar extends React.Component {
             backgroundColor: "darkGreen",
             padding: 10,
         }
-
         return(
             <fragment>
                 <div style={customStyle}>
