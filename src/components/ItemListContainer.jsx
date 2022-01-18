@@ -1,11 +1,12 @@
 import React from "react";
+import ItemList from "./ItemList";
 
 class ItemListContainer extends React.Component {
     render () {
         return(
-            <p>Mis Items</p>
+            <ItemList />
         )
     }
 }
 
-export default ItemListContainer
+export default ItemListContainer;
