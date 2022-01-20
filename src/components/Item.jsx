@@ -1,15 +1,11 @@
 import React from "react";
 
-
-
-function Item() {
+function Item({nombre, id, ingredientes, imagen}) {
     return(
-        <div>
-            <h1>Name</h1>
-            <h2>Price</h2>
-            <p>Description</p>
-        </div>
+     <div>
+       <h1>{nombre}</h1>
+     </div>
     )
-}
-
-export default Item;
+   }
+   
+   export default Item
