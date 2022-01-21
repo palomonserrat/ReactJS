@@ -1,7 +1,9 @@
-import React from "react"
+import React from "react";
 import Item from "./Item";
 import {useState} from 'react';
 import {useEffect} from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const promesa = new Promise(resolve =>{setTimeout(()=>{
     const products = [
