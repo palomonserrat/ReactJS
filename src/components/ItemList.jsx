@@ -3,32 +3,20 @@ import Item from "./Item";
 import {useState} from 'react';
 import {useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Col  } from "react-bootstrap";
+import ItemListContainer from "./ItemListContainer";
 
-function ItemList() {
-    const [producto, setProducts] = useState([])
-
-    useEffect(() => {
-        obtenerDatos()
-    }, [])
-
-    const obtenerDatos = async () => {
-        const data = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-        const users = await data.json()
-        setProducts(users)
-    }
-
+const ItemList = ({products}) => {
     return (
-        <div>
-            <ul>
-                {
-                    producto.map(item => (
-                        <li key={item.id}>{item.name}</li>
-                    ))
-
-                }
-            </ul>
-        </div>
+        <>
+            {products.map((product) => (
+                <Col key={product.id}>
+                    <Item key={product.id} product={product} />
+                </Col>
+            ))}
+        </>
     )
 }
 
-export default ItemList
+export default ItemList;
+
