@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 class NavBar extends React.Component {
     render() {
         const customStyle = {
-            backgroundColor: "darkGreen",
+            backgroundColor: "lightBlue",
             padding: 10,
         }
         return(
