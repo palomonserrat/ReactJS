@@ -2,19 +2,13 @@ import React from "react";
 import {useState} from 'react';
 import {useEffect} from 'react';
 import Item from "./Item";
-
-const getItem = new Promise(resolve =>{setTimeout(()=>{
-    resolve(ItemDetail())
-},2000)
-})
+import { useOutletContext, useParams } from "react-router-dom";
+import { getProductDetail, getProductDescription } from "../services/products"
 
 function ItemDetail() {
     const [detail, setDetail] = useState(null)
 
-    useEffect(() => {
-        getItem.then(res =>setDetail(res))
-    }, [])
-
+   
     if(detail == null){
         return(
             <div>Cargando Detalle...</div>

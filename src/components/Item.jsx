@@ -13,6 +13,10 @@ const Item = ({ product }) => {
         setCleanAttributes(newAttributes)
     }
     useEffect(filterAttributes, [attributes, whiteListAttributes])
+
+    const goToProduct = () => {
+        window.location.href = permalink
+    }
     
     return (
         <Card >
@@ -24,12 +28,13 @@ const Item = ({ product }) => {
                 <Card.Title>
                     ${price}
                 </Card.Title>          
-            </Card.Body>          
+            </Card.Body>                        
             <ListGroup variant="flush">
                 {cleanAttributes.map( (attribute, index) => {
                     return <ListGroup.Item key={index}>{attribute.name} {attribute.value_name}</ListGroup.Item>
                 })}
-            </ListGroup>       
+            </ListGroup>             
+            <Button variant="primary" onClick={ () => goToProduct()}>Ver detalle del producto</Button>
             <ItemDetailContainer />                
         </Card> 
     )
