@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
 import ItemDetailContainer from "./ItemDetailContainer";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 
 const Item = ({ product }) => {
-    const {title, thumbnail, attributes, price, permalink} = product
+    const {title, thumbnail, attributes, price} = product
     const [cleanAttributes, setCleanAttributes] = useState([])
     //const whiteListAttributes = ["Marca", "Modelo"]
     const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
@@ -14,9 +16,6 @@ const Item = ({ product }) => {
     }
     useEffect(filterAttributes, [attributes, whiteListAttributes])
 
-    const goToProduct = () => {
-        window.location.href = permalink
-    }
     
     return (
         <Card >
@@ -34,10 +33,12 @@ const Item = ({ product }) => {
                     return <ListGroup.Item key={index}>{attribute.name} {attribute.value_name}</ListGroup.Item>
                 })}
             </ListGroup>             
-            <Button variant="primary" onClick={ () => goToProduct()}>Ver detalle del producto</Button>
-            <ItemDetailContainer />                
+            <Button variant="primary">
+                <Link style={{ color: "black" }} to="/detail">Ver detalle del producto</Link>
+            </Button>             
         </Card> 
     )
 }
 
 export default Item;
+

@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import NoPage from './components/NoPage';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 const App = () => {
@@ -10,7 +11,8 @@ const App = () => {
       <BrowserRouter>
       <Routes>
         <Route path="/" exact element={ <Home /> } />
-        <Route path="*" element={ <Home /> } />
+        <Route path="*" element={ <NoPage /> } />
+        <Route path="/detail" element={ <ItemDetailContainer /> } />
       </Routes>
     </BrowserRouter>
     </div>

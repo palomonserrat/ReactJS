@@ -4,24 +4,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
 
 
-function ItemCount() {
-    const [itemsQty, setItemsQty] = useState(0);
-    const stock = 8;
+const ItemCount = ({ itemsQty, available_quantity, setItemsQty}) => {
 
-    function decrementCount() {
-        setItemsQty(prevCount => prevCount - 1)
+    const setRealStock = (qty) => {
+        if (qty <= available_quantity) {
+            setItemsQty(qty)
+        } 
     }
 
-    function incrementCount() {
-        setItemsQty(prevCount => prevCount + 1)
+    const removeFromStock = (qty) => {
+        if (qty >= 0) {
+            setItemsQty(qty)
+        }
     }
 
     return(
-        <section style={{ marginBottom: 10 }}>
-            <Button onClick={()=>{if(itemsQty>0){decrementCount()}}} variant="success">-</Button>
-            <span style={{ margin: 10, fontSize: "3rem" }}>{itemsQty}</span>
-            <Button onClick={() =>{if(itemsQty<stock){incrementCount()}else{alert("producto sin stock")}}} variant="success">+</Button>
-        </section>
+        <div>
+            <Button onClick={ () => removeFromStock (itemsQty - 1 ) } variant="primary">-</Button>           
+            <span style={{  margin: 10, fontSize: "1.2rem" }}>{itemsQty}</span>
+            <Button onClick={ () => setRealStock (itemsQty + 1 ) } variant="primary">+</Button> 
+            <div>
+                <small style={{ color: "#a1a1a1" }}>{available_quantity} disponibles</small>
+            </div>            
+        </div>
     )
 }
 
