@@ -12,11 +12,10 @@ const App = () => {
       <Routes>
         <Route path="/" exact element={ <Home /> } />
         <Route path="*" element={ <NoPage /> } />
-        <Route path="/detail" element={ <ItemDetailContainer /> } />
+        <Route path="/detail/:id" element={ <ItemDetailContainer /> } />
       </Routes>
     </BrowserRouter>
     </div>
-    
   );
 }
 

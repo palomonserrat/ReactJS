@@ -5,12 +5,12 @@ import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
-    const [setLoading] = useOutletContext();
+  /*  const [setLoading] = useOutletContext(); */
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
         let mounted = true
-        setLoading(true)
+   /*     setLoading(true) */
         Promise.all([ getProductDetail(id), getProductDescription(id) ])
         .then(results => {
             let item = results[0]
@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
             if (mounted) {
                 setProduct(item)
                 setTimeout(() => {
-                  setLoading(false)
+    /*              setLoading(false)  */
                 }, 3000)
             }
         })

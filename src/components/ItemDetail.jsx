@@ -19,12 +19,9 @@ const ItemDetail = ({ product }) => {
 
                             <Breadcrumb>
                                 <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                <Breadcrumb.Item>Ropa</Breadcrumb.Item>
-                                <Breadcrumb.Item active>Remera</Breadcrumb.Item>
                             </Breadcrumb>
 
                             <div className="btn-group">
-                                <Link to="/" className="btn btn-link btn-share">Compartir</Link>
                                 <Link to="/" className="btn btn-link">Vender un producto como este</Link>
                             </div>
                             </nav>

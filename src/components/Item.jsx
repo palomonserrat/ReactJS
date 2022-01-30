@@ -34,7 +34,7 @@ const Item = ({ product }) => {
                 })}
             </ListGroup>             
             <Button variant="primary">
-                <Link style={{ color: "black" }} to="/detail">Ver detalle del producto</Link>
+                <Link style={{ color: "black" }} to={`detail/${product.id}`}>Ver detalle del producto</Link>
             </Button>             
         </Card> 
     )
