@@ -66,9 +66,11 @@ const ItemDetail = ({ product }) => {
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
                                     </div>
                                     <Button variant="primary">Agregar al carrito</Button>
+                                    <div>
+                                    <Button variant="primary"><Link style={{ color: "white", textDecoration: "none" }} to={`/cart`}>Finalizar compra</Link></Button>
+                                    </div>
                                 </Col>
                             </Row>
-
                         </Card.Body>
                     </Card>
                 </Col>
