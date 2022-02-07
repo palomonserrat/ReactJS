@@ -1,10 +1,12 @@
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import ItemCount from "./ItemCount";
+import { CartContext } from "./CartContext";
 
 const ItemDetail = ({ product }) => {
-
+    const { addItem } = useContext(CartContext);
+    
     const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity} = product
     const [itemsQty, setItemsQty] = useState(0);
 
@@ -19,9 +21,12 @@ const ItemDetail = ({ product }) => {
 
                             <Breadcrumb>
                                 <Breadcrumb.Item>Home</Breadcrumb.Item>
+                                <Breadcrumb.Item>Ropa</Breadcrumb.Item>
+                                <Breadcrumb.Item active>Remera</Breadcrumb.Item>
                             </Breadcrumb>
 
                             <div className="btn-group">
+                                <Link to="/" className="btn btn-link btn-share">Compartir</Link>
                                 <Link to="/" className="btn btn-link">Vender un producto como este</Link>
                             </div>
                             </nav>
@@ -65,12 +70,10 @@ const ItemDetail = ({ product }) => {
                                     <div className="mb-3">
                                         <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
                                     </div>
-                                    <Button variant="primary">Agregar al carrito</Button>
-                                    <div>
-                                    <Button variant="primary"><Link style={{ color: "white", textDecoration: "none" }} to={`/cart`}>Finalizar compra</Link></Button>
-                                    </div>
+                                    <Button onClick={() => addItem(product, itemsQty)} variant="primary">Agregar al carrito</Button>
                                 </Col>
                             </Row>
+
                         </Card.Body>
                     </Card>
                 </Col>

@@ -2,7 +2,6 @@ import { useOutletContext, useParams } from "react-router-dom";
 import { getProductDetail, getProductDescription } from "../services/products";
 import { useEffect, useState } from 'react';
 import ItemDetail from './ItemDetail';
-import { CartProvider } from "./CartContext";
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -28,7 +27,7 @@ const ItemDetailContainer = () => {
 
     return (
         <div className="item-detail-container">
-            {product ? <CartProvider> <ItemDetail product={product} /> </CartProvider>  : null }
+            {product ? <ItemDetail product={product} /> : null }
         </div>
     )
 }

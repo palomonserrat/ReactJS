@@ -7,17 +7,15 @@ import { CartContext, CartProvider } from './components/CartContext';
 
 const App = () => {
   return (
-    <div className="App">     
+    <CartProvider>     
       <BrowserRouter>
-      <Routes>
-        <Route path="/" exact element={ <Home /> } />
-      
+        <Routes>
+          <Route path="/" exact element={ <Home /> } />
           <Route path="*" element={ <NoPage /> } />
           <Route path="/detail/:id" element={ <ItemDetailContainer /> } />
-        
-      </Routes>
-    </BrowserRouter>
-    </div>
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

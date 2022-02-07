@@ -1,45 +1,46 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 
-class NavBar extends React.Component {
-    render() {
-        const customStyle = {
-            backgroundColor: "lightBlue",
-            padding: 10,
-        }
-        return(
-            <fragment>
-                <div style={customStyle}>
-                    <nav class="navbar navbar-expand-lg navbar-light ">
-                        <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Morkstar Bookstore</a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Shop All</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">Our Selection</a>
-                                </li>
-                                <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                                </li>
-                            </ul>
-                            </div>
-                            <CartWidget />
-                        </div>
-                    </nav>
-                </div>
-                
-            </fragment>
-        )
-    }
+
+const NavBar = ({ categories }) => {
+
+    return (
+        <Navbar sticky="top" style={{ fontSize: "0.8rem", backgroundColor: "#fff159" }} variant="light" expand="lg">
+            <Container> 
+                <Navbar.Brand as={Link} to="/">Bookstore</Navbar.Brand>            
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+                <Navbar.Collapse id="basic-navbar-nav-2">
+                <Nav>
+                    <Nav.Link as={NavLink} to="/" activeclassname="active">Inicio</Nav.Link> 
+                    <NavDropdown title={"Categorias"} id="basic-nav-dropdown">                      
+                        {categories?.slice(0,6).map(category => { return (<NavDropdown.Item key={category.id} as={Link} to={`/category/${category.id}`}>{category.name}</NavDropdown.Item>)})}
+                        <NavDropdown.Item as={Link} to={`/categories`}>Ver todas</NavDropdown.Item>                          
+                    </NavDropdown>             
+                    <Nav.Link as={NavLink} to="/offers" activeclassname="active">Ofertas</Nav.Link>
+                    <Nav.Link as={NavLink} to="/history" activeclassname="active">Historial</Nav.Link>                
+                </Nav>                 
+                </Navbar.Collapse>
+
+                <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+                <Nav>                   
+                    <NavDropdown title={<>Palo</>} id="basic-nav-dropdown">
+                        <NavDropdown.Item href="#">Configuracion</NavDropdown.Item>
+                        <NavDropdown.Item href="#">Perfil</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#">Salir</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="#categorias"> Mis Compras</Nav.Link>                
+                    <Nav.Link href="#link"><CartWidget /></Nav.Link>
+                </Nav>
+                </Navbar.Collapse>              
+            </Container>
+        </Navbar>
+    )
 }
+
+
 
 export default NavBar;
