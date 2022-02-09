@@ -1,36 +1,22 @@
+import React, {useContext, Fragment, useState} from 'react';
+import Item from './Item';
+import { Link } from 'react-router-dom';
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { useContext, useState } from 'react';
 import ItemCount from "./ItemCount";
 import { CartContext } from "./CartContext";
 
-const ItemDetail = ({ product }) => {
+
+const Cart = ({ product }) => {
+
     const { addItem } = useContext(CartContext);
     
     const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity} = product
     const [itemsQty, setItemsQty] = useState(0);
-
+      
     return (
         <Container>
             <Row>
                 <Col lg={12}>
-                    <Card className="mb-10">
-                        <Card.Header>
-                            <nav className="header-navigation">
-                            <Link to="/" className="btn btn-link">Volver atras</Link>
-
-                            <Breadcrumb>
-                                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                <Breadcrumb.Item>Ropa</Breadcrumb.Item>
-                                <Breadcrumb.Item active>Remera</Breadcrumb.Item>
-                            </Breadcrumb>
-
-                            <div className="btn-group">
-                                <Link to="/" className="btn btn-link btn-share">Compartir</Link>
-                                <Link to="/" className="btn btn-link">Vender un producto como este</Link>
-                            </div>
-                            </nav>
-                        </Card.Header>
                         <Card.Body className="store-body">
                             <Row>
                                 <Col xs={7} className="product-info">
@@ -47,7 +33,6 @@ const ItemDetail = ({ product }) => {
                                     <Col classNa
                                     me="product-seller-recommended">
                                         <Col className="product-description mb-5" style={{textAlign: "left"}}>
-                                            <h5 className="mt-3 mb-4">Lo que tenés que saber de este producto</h5>
                                             <dl className="row mb-5">
                                                 {attributes.slice(0, 8).map(attribute => { return(<>
                                                     <dd className="col-sm-8">{attribute.name}</dd>
@@ -74,11 +59,11 @@ const ItemDetail = ({ product }) => {
                                 </Col>
                             </Row>
                         </Card.Body>
-                    </Card>
                 </Col>
             </Row>
         </Container>
     )
-}
 
-export default ItemDetail;
+};
+
+export default Cart;
