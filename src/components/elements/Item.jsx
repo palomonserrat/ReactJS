@@ -1,13 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
 import { Button, Card, ListGroup } from "react-bootstrap";
-import ItemDetailContainer from "./ItemDetailContainer";
+import ItemDetailContainer from "../sections/ItemDetailContainer";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
 const Item = ({ product }) => {
     const {title, thumbnail, attributes, price} = product
     const [cleanAttributes, setCleanAttributes] = useState([])
-    //const whiteListAttributes = ["Marca", "Modelo"]
     const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
 
     const filterAttributes = () => {

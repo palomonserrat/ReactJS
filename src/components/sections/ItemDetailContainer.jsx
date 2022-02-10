@@ -1,7 +1,7 @@
 import { useOutletContext, useParams } from "react-router-dom";
-import { getProductDetail, getProductDescription } from "../services/products";
+import { getProductDetail, getProductDescription } from "../../services/products";
 import { useEffect, useState } from 'react';
-import ItemDetail from './ItemDetail';
+import ItemDetail from '../elements/ItemDetail';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();

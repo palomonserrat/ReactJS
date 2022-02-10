@@ -1,15 +1,15 @@
 import { useContext } from 'react';
-import { cartImg } from '../assets/cartImg.png';
-import { CartContext } from './CartContext';
+import carrito from '../assets/img/carritoDeCompras.png';
+import { CartContext } from '../contexts/CartContext';
 
-
-const CartWidget = () => {
+const CartWidget = (props) => {
     
-    const { items } = useContext(CartContext);
+    
+    const numOfItem=useContext(CartContext)
     
     return(
         <div style={{position: "relative", marginLeft: 6}}>
-            <cartImg />
+            <img style={{width: 40}} src={carrito} />
             <div style={{color: "#fff", 
             marginLeft: 6, 
             fontWeight: "bold", 
@@ -22,7 +22,7 @@ const CartWidget = () => {
             paddingBottom: "2px", 
             paddingLeft: "5px", 
             paddingRight: "4px", 
-            borderRadius: "20%"}}>{items.length}</div>
+            borderRadius: "20%"}}>{numOfItem.cart.length}</div>
         </div>
     )
 }

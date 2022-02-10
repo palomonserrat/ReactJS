@@ -2,7 +2,7 @@ import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useContext, useState } from 'react';
 import ItemCount from "./ItemCount";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../contexts/CartContext";
 
 const ItemDetail = ({ product }) => {
     const { addItem } = useContext(CartContext);

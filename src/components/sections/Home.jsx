@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getProductsFromCategory } from '../services/products';
+import { getProductsFromCategory } from '../../services/products';
 import ItemListContainer from './ItemListContainer';
-import NavBar from './NavBar';
-import Loading from './Loading';
+import NavBar from '../elements/NavBar';
+import Loading from '../elements/Loading';
 import { collection, getDoc,  getDocs, query, where } from "firebase/firestore"
-import { db } from '../firebase'
+import { db } from '../../firebase'
 
 
 const Home = () => {

@@ -1,10 +1,14 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import NoPage from './components/NoPage';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import { CartContext, CartProvider } from './components/CartContext';
-import Cart from './components/Cart'
+import Home from './components/sections/Home';
+import NoPage from './components/sections/NoPage';
+import ItemDetailContainer from './components/sections/ItemDetailContainer';
+import { CartContext} from './components/contexts/CartContext';
+import { CartProvider} from './components/contexts/CartProvider';
+
+
+
+import Cart from './components/elements/Cart'
 
 const App = () => {
   return (

@@ -32,8 +32,8 @@ const NavBar = ({ categories }) => {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#">Salir</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#categorias"> Mis Compras</Nav.Link>                
-                    <Nav.Link href="/cart"><CartWidget /></Nav.Link>
+                    <Nav.Link href="#categorias"> Mis Compras</Nav.Link> 
+                    <Link to="/cart"> <CartWidget /> </Link>
                 </Nav>
                 </Navbar.Collapse>              
             </Container>

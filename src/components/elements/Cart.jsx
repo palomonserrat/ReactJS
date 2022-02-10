@@ -3,7 +3,7 @@ import Item from './Item';
 import { Link } from 'react-router-dom';
 import { Breadcrumb, Button, Card, Col, Container, Row } from "react-bootstrap";
 import ItemCount from "./ItemCount";
-import { CartContext } from "./CartContext";
+import { CartContext } from "../contexts/CartContext";
 
 
 const Cart = () => {
@@ -26,9 +26,8 @@ const Cart = () => {
         return (<div>      
             <h1>Carrito De Compras</h1>
               <form className="d-flex">
-                  <div class="">
-                    
-                      <div class="">
+                  <div> 
+                      <div>
                           <div className="four columns">
                               <ul>
                                   <div className="submenu">
