@@ -6,64 +6,80 @@ import ItemCount from "./ItemCount";
 import { CartContext } from "./CartContext";
 
 
-const Cart = ({ product }) => {
-
-    const { addItem } = useContext(CartContext);
-    
-    const { title, description, price, sold_quantity, warranty, attributes, pictures, available_quantity} = product
-    const [itemsQty, setItemsQty] = useState(0);
+const Cart = () => {
+    const {cart, removeItem, clear, subTotal, unidadesSeleccionadas} =useContext(CartContext)
+    console.log(cart)
+        
+        if(cart.length===0)
+        return ( <div>
+        <h1>Carrito De Compras</h1>
+          <h2 className="carroVacio text-center">Carrito vacío, agrega un producto</h2>
+          <div className="text-center">
+          <Link to="/">
+          <button className="btn btn-warning ">Volver al inicio</button>
+          </Link>
+          </div>
+          </div>
+  
+        )
       
-    return (
-        <Container>
-            <Row>
-                <Col lg={12}>
-                        <Card.Body className="store-body">
-                            <Row>
-                                <Col xs={7} className="product-info">
-                                    <Col className="product-gallery">
-                                        <Col className="product-gallery-thumbnails">
-                                            <ol className="thumbnails-list list-unstyled">
-                                                {pictures.slice(0, 6).map(picture => { return (<li> <img src={picture.secure_url} alt="" /></li>)})}
-                                            </ol>
-                                        </Col>
-                                        <Col xs={10} className="product-gallery-featured">
-                                            {pictures.length > 0 ? <img src={pictures[0].secure_url} alt="" /> : null}
-                                        </Col>
-                                    </Col>
-                                    <Col classNa
-                                    me="product-seller-recommended">
-                                        <Col className="product-description mb-5" style={{textAlign: "left"}}>
-                                            <dl className="row mb-5">
-                                                {attributes.slice(0, 8).map(attribute => { return(<>
-                                                    <dd className="col-sm-8">{attribute.name}</dd>
-                                                <dt className="col-sm-4">{attribute.value_name}</dt>                                                
-                                                </>) })}
-                                            </dl>
-                                            <h2 className="mb-5">Descripción</h2>
-                                            {description}
-                                        </Col>
-                                    </Col>
-                                </Col>
-                                <Col className="product-payment-details">
-                                    <p className="last-sold text-muted"><small>{sold_quantity} vendidos</small></p>
-                                    <h4 className="product-title mb-2">{title}</h4>
-                                    <h2 className="product-price display-4">$ {price}</h2>
-                                    <p className="text-success"><i className="fa fa-credit-card"></i> 12x or  5x $ 5.00</p>
-                                    <p className="mb-0"><i className="fa fa-truck"></i> Tipo de Garantia</p>
-                                    <div className="text-muted mb-4"><small>{warranty}</small></div>                              
-                                    <label for="quant">Cantidad</label>
-                                    <div className="mb-3">
-                                        <ItemCount itemsQty={itemsQty} available_quantity={available_quantity} setItemsQty={setItemsQty} />
-                                    </div>
-                                    <Button onClick={() => addItem(product, itemsQty)} variant="primary">Agregar al carrito</Button>
-                                </Col>
-                            </Row>
-                        </Card.Body>
-                </Col>
-            </Row>
-        </Container>
-    )
-
-};
+        return (<div>      
+            <h1>Carrito De Compras</h1>
+              <form className="d-flex">
+                  <div class="">
+                    
+                      <div class="">
+                          <div className="four columns">
+                              <ul>
+                                  <div className="submenu">
+                                        <div id="carrito">
+                                          <a href="#" id="vaciar-carrito" className="btn btn-danger" onClick={()=>clear()}>Vaciar Carrito</a>
+                                          <table id="lista-carrito" class="table table-hover">
+  
+                                              <thead>
+                                                  <tr>
+                                                      <th scope="col">Imagen</th>
+                                                      <th scope="col">Producto</th>
+                                                      <th scope="col">Cantidad</th>
+                                                      <th scope="col">Valor</th>
+                                                      <th scope="col">Eliminar</th>
+                                                  </tr>
+                                              </thead>
+  
+                                              <tbody>
+                                                {cart.map((item)=>(
+                                                <div>
+                                                    <img src={item.foto} style={{width: '70px'}}/>
+                                                
+                                                <td>{item.nombre}</td>
+                                                <td className="text-center">{item.cantidad}</td>
+                                                <td>{item.precio}</td>
+                                                <td>
+                                                    <a href="#" className="borrar-producto fas fa-times-circle" data-id={item.id} onClick={()=>removeItem(item.id, item.cantidad, item.precio)}></a>
+                                                </td>
+                                                </div>
+                                                ))}
+                                                  
+                                              </tbody>
+                                          </table>
+                                          <p>Total : $ {subTotal}</p>
+                                          <p>Total: {unidadesSeleccionadas}</p>
+                                          <a href="#" id="procesar-pedido" class="btn btn-danger">Realizar pedido</a>
+                                          
+                                      </div>
+                                  </div>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+  
+              </form>
+  
+              </div>);
+  
+  
+  
+  
+  };
 
 export default Cart;
