@@ -3,7 +3,7 @@ import { getProductsFromCategory } from '../../services/products';
 import ItemListContainer from './ItemListContainer';
 import NavBar from '../elements/NavBar';
 import Loading from '../elements/Loading';
-import { collection, getDoc,  getDocs, query, where } from "firebase/firestore"
+import { collection, getDoc,  getDocs, query, where, doc } from "firebase/firestore"
 import { db } from '../../firebase'
 
 
@@ -28,14 +28,25 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
+
     const getFromFirebase = async () => {
-      const query = collection(db, "items")
+      const query = (collection(db, "items"), where("name", "==", "A Little Life"))
       const snapshot = await getDocs(query)
       snapshot.forEach((doc) => {
-        console.log(doc.data())
+        console.log(doc.data());
       })
+
+      snapshot.map(doc => {
+        console.log(doc.data());
+      })
+
+      const docRef = doc(db, "items", "lTyImmiWUBBR76NAIjXK")
+      const docSnapshot = await getDoc(docRef)
+      console.log(docSnapshot.data());
     }
-  })
+
+    getFromFirebase()
+  },[]);
 
   return (
     <div className="App"> 

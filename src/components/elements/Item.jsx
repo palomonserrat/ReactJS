@@ -32,8 +32,8 @@ const Item = ({ product }) => {
                     return <ListGroup.Item key={index}>{attribute.name} {attribute.value_name}</ListGroup.Item>
                 })}
             </ListGroup>             
-            <Button variant="primary">
-                <Link style={{ color: "black" }} to={`detail/${product.id}`}>Ver detalle del producto</Link>
+            <Button variant="primary" style={{ backgroundColor: "#61dafb" }}>
+                <Link style={{ color: "black", textDecoration: "none" }} to={`detail/${product.id}`}>Ver detalle del producto</Link>
             </Button>             
         </Card> 
     )

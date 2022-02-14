@@ -2,12 +2,12 @@ import React from "react";
 import CartWidget from "./CartWidget";
 import { Container, Form, FormControl, InputGroup, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-
+import '../../App.css'
 
 const NavBar = ({ categories }) => {
 
     return (
-        <Navbar sticky="top" style={{ fontSize: "0.8rem", backgroundColor: "#fff159" }} variant="light" expand="lg">
+        <Navbar sticky="top" style={{ fontSize: "0.8rem", backgroundColor: "#61dafb" }} variant="light" expand="lg">
             <Container> 
                 <Navbar.Brand as={Link} to="/">Bookstore</Navbar.Brand>            
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
