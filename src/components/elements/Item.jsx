@@ -1,43 +1,26 @@
 import { useState, useEffect, useMemo } from "react";
-import { Button, Card, ListGroup } from "react-bootstrap";
+import { Button, Card, ListGroup, Container, } from "react-bootstrap";
 import ItemDetailContainer from "../sections/ItemDetailContainer";
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 
-const Item = ({ product }) => {
-    const {title, thumbnail, attributes, price} = product
-    const [cleanAttributes, setCleanAttributes] = useState([])
-    const whiteListAttributes = useMemo(() =>  ["Marca", "Modelo"], []);
-
-    const filterAttributes = () => {
-        let newAttributes = attributes.filter(attribute => whiteListAttributes.includes(attribute.name))
-        setCleanAttributes(newAttributes)
-    }
-    useEffect(filterAttributes, [attributes, whiteListAttributes])
-
-    
+const Item = ({ id, titulo, imagen, precio, categoria }) => {
     return (
-        <Card >
-            <Card.Img style={{ marginTop: 10, height: '110px', with: "100%", objectFit: "contain" }} variant="top" src={thumbnail} />
-            <Card.Body style={{ textAlign: "left" }}>
-                <Card.Text style={{ height: 40 }}>
-                    {title}
-                </Card.Text>
-                <Card.Title>
-                    ${price}
-                </Card.Title>          
-            </Card.Body>                        
-            <ListGroup variant="flush">
-                {cleanAttributes.map( (attribute, index) => {
-                    return <ListGroup.Item key={index}>{attribute.name} {attribute.value_name}</ListGroup.Item>
-                })}
-            </ListGroup>             
-            <Button variant="primary" style={{ backgroundColor: "#61dafb" }}>
-                <Link style={{ color: "black", textDecoration: "none" }} to={`detail/${product.id}`}>Ver detalle del producto</Link>
-            </Button>             
-        </Card> 
+      <Container key={id} className="col-12 col-md-6 col-lg-4 d-flex justify-content-center my-3">
+        <Card border="secondary" className="card p-3 bg-light rounded-3">
+          <Card.Img className="center-cropped" variant="top" style={{ width:250 }} src={imagen} />
+          <Card.Body>
+            <Card.Title className="text-center">{titulo}</Card.Title>
+            <Card.Subtitle className="p-2" style={{ textAlign: "center" }}><strong className="precio">$ {precio}</strong></Card.Subtitle>
+            <Link to={`/${categoria}/${id}`}>
+              <button className="botonVerMas btn btn-lg col-12 btn-success bg-gradient text-white mt-2 mb-2">Ver más</button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </Container>
     )
-}
+  }
+  
 
 export default Item;
 

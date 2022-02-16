@@ -1,28 +1,39 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/sections/Home';
-import NoPage from './components/sections/NoPage';
-import ItemDetailContainer from './components/sections/ItemDetailContainer';
-import { CartContext} from './components/contexts/CartContext';
-import { CartProvider} from './components/contexts/CartProvider';
+import NavBar from "../src/components/elements/NavBar"
+import React from "react"
+import Cart from "../src/components/elements/Cart"
+import ItemDetailContainer from "../src/components/sections/ItemDetailContainer"
+import { FuncionCarrito } from "../src/components/contexts/CartContext";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import ItemListContainer from "../src/components/sections/ItemListContainer";
+import "./App.css";
 
-
-
-import Cart from './components/elements/Cart'
-
-const App = () => {
+function App() {
   return (
-    <CartProvider>     
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={ <Home /> } />
-          <Route path="*" element={ <NoPage /> } />
-          <Route path="/detail/:id" element={ <ItemDetailContainer /> } />
-          <Route path="/cart" exact element={ <Cart /> } />
-        </Routes>
-      </BrowserRouter>
-    </CartProvider>
-  );
+    <Router>
+      <FuncionCarrito>
+        <div className="container">
+
+          <NavBar />
+
+          <Routes>
+
+            <Route exact path="/" element={<ItemListContainer/>}></Route>
+
+            <Route exact path="/cart" element={<Cart/>}></Route>
+
+            <Route path="/:categoria" element={<ItemListContainer/>}></Route>
+
+            <Route path="/:categoria/:id" element={<ItemDetailContainer />}></Route>
+
+          </Routes>
+        </div>
+      </FuncionCarrito>
+    </Router>
+  )
 }
 
 export default App;
