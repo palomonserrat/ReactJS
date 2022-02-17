@@ -1,20 +1,19 @@
-#ChamBooks - React.js
-
+# ChamBooks - React.js
 Entrega final React:
 Paloma Porco
 
-Live Demo: 
+# Live Demo: 
 Sobre ChamBooks
 Es un E-commerse que se dedica a la venta de libros y comics al mejor precio del mercado.
 
-#Navegación:
-Home:
+## Navegación:
+### Home:
 Incluye las cards con todos los productos.
 
-Carrito:
+### Carrito:
 Un carrito donde se pueden ver todos los productos que "agregaste al carrito".
 
-Interfaz del Usuario:
+### Interfaz del Usuario:
 El usuario puede agregar un producto al carrito desde el Home o seleccionar la categoria correspondiente para filtrar los productos (ojos, rostro, labios) y desde ahi añadir el producto al carrito apretando primero en el boton de "Ver más" y luego en "Agregar al carrito"
 
 En la barra de navegación, en donde esta el icono del carrito muestra la cantidad de productos que el usuario agrega al carrito.
