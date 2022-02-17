@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
 
@@ -29,8 +29,6 @@ const ItemCount = (props) => {
         }
     }
 
-
-    
     return (
         <div className="container">
         <div className="container justify-content-center display-flex col-12 p-2">
@@ -49,7 +47,6 @@ const ItemCount = (props) => {
               Agregar al carrito
             </Button>
           </div>
-  
         </div>
       </div>
     )

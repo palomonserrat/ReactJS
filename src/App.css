@@ -75,7 +75,7 @@ p{
 }
 
 footer {
-  background-color: rgb(206, 137, 191);
+  background-color: #478555;
   text-align: center;
   padding: 0.5rem;
 }
@@ -86,25 +86,13 @@ footer {
   background-repeat: no-repeat;
 }
 
-.imgLogo {
-  display: block;
-  margin: 0 auto;
-  padding-bottom: 50px;
-}
-
-.banner {
-  background-image: url(https://res.cloudinary.com/dvsraj89p/image/upload/v1638836720/Ro_imagenes/banner_es5i0t.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  box-shadow: 0px 0px 110px rgb(235, 99, 151);
-  border-radius: 210px;
-}
-
 .barra {
   font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.me-auto {
   font-size: 2rem;
+}
+
+.navlinkSeccion{
+  font-size: 1.5rem;
 }
 
 .carrito {

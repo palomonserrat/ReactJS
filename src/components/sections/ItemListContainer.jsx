@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "../elements/ItemList";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row } from "react-bootstrap";
 import { getFirestore } from "../../firebase";
 import Loading from '../elements/Loading';
-
-
 
 const ItemListContainer = () => {
     const [productos, setProductos] = useState([])

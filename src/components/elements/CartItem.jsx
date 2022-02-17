@@ -1,6 +1,6 @@
-import { useContext } from "react"
-import { Context } from "../contexts/CartContext"
-import { Container, Card, Button, Row, Col } from "react-bootstrap"
+import { useContext } from "react";
+import { Context } from "../contexts/CartContext";
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
 
 const CartItem = ({ id, titulo, precio, imagen, cantidad, subtotal }) => {
     const { removeCart } = useContext(Context)
@@ -40,4 +40,4 @@ const CartItem = ({ id, titulo, precio, imagen, cantidad, subtotal }) => {
 }
 
 
-export default CartItem
+export default CartItem;

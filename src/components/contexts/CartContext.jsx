@@ -1,4 +1,5 @@
-import React, {useState} from "react"
+import React, {useState} from "react";
+
 const Context = React.createContext()
 
 const FuncionCarrito = ({children}) => {
@@ -44,4 +45,4 @@ const FuncionCarrito = ({children}) => {
     </Context.Provider>
 }
 
-export {Context, FuncionCarrito}
+export {Context, FuncionCarrito};

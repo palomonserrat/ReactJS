@@ -1,8 +1,8 @@
-import { useContext } from "react"
+import { useContext } from "react";
 import carrito from '../assets/img/carritoDeCompras.png';
-import { Link } from "react-router-dom"
-import { Context } from "../contexts/CartContext"
-import { Container } from "react-bootstrap"
+import { Link } from "react-router-dom";
+import { Context } from "../contexts/CartContext";
+import { Container } from "react-bootstrap";
 
 const CartWidget = (props) => {
     
@@ -31,4 +31,4 @@ const CartWidget = (props) => {
     )
 }
 
-export default CartWidget
+export default CartWidget;

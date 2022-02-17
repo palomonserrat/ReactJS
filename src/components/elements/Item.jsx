@@ -10,7 +10,7 @@ const Item = ({ id, titulo, imagen, precio, categoria }) => {
         <Card border="secondary" className="card p-3 bg-light rounded-3">
           <Card.Img className="center-cropped" variant="top" style={{ width:250 }} src={imagen} />
           <Card.Body>
-            <Card.Title className="text-center">{titulo}</Card.Title>
+            <Card.Title style={{ textAlign: "center", fontSize:15 }}>{titulo}</Card.Title>
             <Card.Subtitle className="p-2" style={{ textAlign: "center" }}><strong className="precio">$ {precio}</strong></Card.Subtitle>
             <Link to={`/${categoria}/${id}`}>
               <button className="botonVerMas btn btn-lg col-12 btn-success bg-gradient text-white mt-2 mb-2">Ver más</button>

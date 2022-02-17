@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react';
-import { Context } from "../contexts/CartContext"
-import { Container, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import CartItem from "../elements/CartItem"
-import { getFirestore } from "../../firebase"
-import "firebase/firestore"
+import { Context } from "../contexts/CartContext";
+import { Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import CartItem from "../elements/CartItem";
+import { getFirestore } from "../../firebase";
+import "firebase/firestore";
 
 const Cart = () => {
     const { cart, precioTotal, clearCart } = useContext(Context);
@@ -13,7 +13,7 @@ const Cart = () => {
     
     const finishOrder = async () => {
       const user = {
-        nombre: "Rocio",
+        nombre: "Paloma",
         email: "email@test.com",
         telefono: "123456789",
       }
@@ -92,4 +92,4 @@ const Cart = () => {
   
   }
 
-  export default Cart
+  export default Cart;
