@@ -2,7 +2,8 @@
 Entrega final React:
 Paloma Porco
 
-# Live Demo: 
+# Live Demo: ![ezgif com-gif-maker](https://user-images.githubusercontent.com/92894468/154551321-de1d6e19-c844-443d-b4a3-3a8d92f4a680.gif)
+
 Sobre ChamBooks
 Es un E-commerse que se dedica a la venta de libros y comics al mejor precio del mercado.
 
