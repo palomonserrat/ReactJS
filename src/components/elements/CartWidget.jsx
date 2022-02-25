@@ -11,7 +11,7 @@ const CartWidget = (props) => {
     return(
         <Container as={Link} to="/cart">
             <div style={{position: "relative", marginLeft: 6}}>
-            <img style={{width: 40}} src={carrito} />
+            <img style={{width: 40}} src={carrito} alt="widget del carrito" />
             <div style={{color: "#fff", 
             marginLeft: 6, 
             fontWeight: "bold", 

@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <Container fluid as="footer">
             <p>&reg; ChamBooks</p>
-            <img style={{width: 70}} src={logo} />
+            <img style={{width: 70}} src={logo} alt="logo chamBooks" />
         </Container>
     )
 }

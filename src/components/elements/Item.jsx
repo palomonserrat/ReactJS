@@ -1,7 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
-import { Button, Card, ListGroup, Container, } from "react-bootstrap";
-import ItemDetailContainer from "../sections/ItemDetailContainer";
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Card,  Container, } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 
 
 const Item = ({ id, titulo, imagen, precio, categoria }) => {

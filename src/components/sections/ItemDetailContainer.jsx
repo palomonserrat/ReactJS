@@ -1,5 +1,4 @@
-import { useOutletContext, useParams } from "react-router-dom";
-import { getProductDetail, getProductDescription } from "../../services/products";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import ItemDetail from '../elements/ItemDetail';
 import { getFirestore } from "../../firebase"
